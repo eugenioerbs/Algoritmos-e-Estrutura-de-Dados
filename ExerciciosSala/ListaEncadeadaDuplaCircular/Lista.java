@@ -17,7 +17,7 @@ public class Lista<T> {
             No<T> ultimo = inicio.getAnterior();
             ultimo.setProximo(novo);
             novo.setAnterior(ultimo);
-            novo.setProximo(novo);
+            novo.setProximo(inicio);
             inicio.setAnterior(novo);
         }
         tamanho++;

@@ -1,0 +1,26 @@
+Enunciado:
+Este método deverá redimensionar o vetor para que tenha um novo tamanho 
+(fornecido como argumento para o método). O método deve realocar um novo vetor 
+como o tamanho especificado e transferir os objetos armazenados no mapa para o novo vetor. 
+Observar que os objetos poderão ocupar uma nova posição no vetor novo, pois você precisará 
+recalcular o novo hash para cada objeto e armazenar na posição correspondente. Ao final do processo, 
+o atributo info da classe MapaDispersao deve referenciar o novo vetor.
+
+public MapaHash redimencionarMapa(int tamanho) {
+        int novoTamanho = tamanho;
+        MapaHash novoMapa = new MapaHash(novoTamanho);
+
+        for (int i = 0; i < size; i++) {
+            if (vetor[i] != null) {
+                No no = vetor[i].getFirst();
+
+                while (no != null) {
+                    novoMapa.insert(no.getKey(), no.getInfo());
+                    no = no.getNext();
+                }
+            }
+        }
+        this.vetor = novoMapa.vetor;
+        this.size = novoMapa.getSize();
+        return novoMapa;
+    }
